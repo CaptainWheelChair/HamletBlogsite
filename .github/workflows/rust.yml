@@ -8,7 +8,12 @@ on:
 
 env:
   CARGO_TERM_COLOR: always
-
+  
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+  
 jobs:
   deployment:
 
@@ -47,4 +52,3 @@ jobs:
       uses: actions/deploy-pages@v1
       with:
         token: ${{ github.token }}
-        id-token: write
