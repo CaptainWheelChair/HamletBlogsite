@@ -1,4 +1,4 @@
-name: Rust
+name: Deployment
 
 on:
   push:
@@ -10,13 +10,17 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
+  deployment:
 
-    runs-on: ubuntu-latest, windows-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v3
+    - name: Dioxus install
+      run: cargo install dioxus
     - name: Build
       run: cargo build --verbose
+    - name: Test
+      run: cargo test --verbose
     - name: Run
-      run: rustup run stable-msvc dioxus serve --platform web --hot-reload on
+      run: dioxus serve --platform web --hot-reload on
