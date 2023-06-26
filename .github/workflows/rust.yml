@@ -23,6 +23,9 @@ jobs:
         toolchain: stable
         target: wasm32-unknown-unknown
         
+    - name: Wasm-Bidgen upade
+      run: cargo update -p wasm-bindgen --precise 0.2.87
+        
     - name: Rust Cache
       uses: Swatinem/rust-cache@v2.2.1
       with:
