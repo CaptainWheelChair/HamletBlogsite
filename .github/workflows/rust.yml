@@ -20,5 +20,7 @@ jobs:
       run: cargo build --verbose
     - name: Test
       run: cargo test --verbose
-    - name: Run
-      run: dioxus serve --platform web --hot-reload on
+    - name: Dioxus Build
+      run: ~/.cargo/bin/dioxus build
+    - name: Dioxus Run
+      run: ~/.cargo/bin/dioxus serve --platform web --hot-reload on
